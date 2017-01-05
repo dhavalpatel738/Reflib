@@ -1,0 +1,12 @@
+# VMware software license
+StartFields = "Cpt, ProductID, LicenseVersion, LicenseType, LicenseEdition, Option, Epoch"
+Cpt = "COPYRIGHT (c) VMware, Inc."
+ProductID = "VMware IT Business Management Standard"
+LicenseVersion = "7.0"
+LicenseType = "Site"
+Epoch = "2015-8-1"
+LicenseEdition = "itbmstd.cpuPackage"
+Option = "7"
+Data = "FileVersion=7.0.0.0;capacityType=cpuPackage;desc=vRealize Business Standard 7"
+DataHash = "58ddd28f-aad3aed4-53a1a46b-fae37b67-29ab672b"
+Hash = "60c52de5-35eb6b60-7ff2a70c-5d892529-77b0348a"

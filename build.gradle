@@ -5,6 +5,9 @@ apply plugin: 'eclipse-wtp'
 apply plugin: 'org.akhikhl.gretty'
 apply plugin: 'idea'
 apply plugin: 'jacoco' //code coverage
+apply plugin: 'spring-boot'
+apply plugin: 'cobertura'
+apply plugin: 'pmd'
 
 def springVersion = "4.2.4.RELEASE"
 def jdkVersion = 1.8
@@ -18,9 +21,23 @@ def servletApiVersion = "3.1"
 sourceCompatibility = jdkVersion
 targetCompatibility = jdkVersion
 
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.9.RELEASE")
+        classpath 'net.saliman:gradle-cobertura-plugin:2.2.4'
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
+
 repositories {
     mavenLocal()
     mavenCentral()
+    maven {url 'http://build-squid.eng.vmware.com/nexus/content/groups/repo'}
 }
 
 task wrapper(type: Wrapper) {
@@ -32,12 +49,18 @@ configurations.all {
 }
 
 dependencies {
-
+	//compile "com.vmware.vli:jni.vlicheck:235247"
     compile 'org.slf4j:jcl-over-slf4j:' + jclOverSlf4jVersion
 	compile 'ch.qos.logback:logback-classic:' + logbackVersion
     compile 'org.springframework:spring-webmvc:' +springVersion
 	compile 'javax.servlet:jstl:' + jstlVersion
     compile 'org.springframework:spring-test:' + springVersion
+    compile("org.springframework.boot:spring-boot-starter-web:1.1.9.RELEASE") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile("org.springframework.boot:spring-boot-starter-jetty:1.1.9.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-actuator:1.1.9.RELEASE")
+    
     //exclude the build in hamcrest
     testCompile('junit:junit:' + junitVersion) {
         exclude group: 'org.hamcrest'
@@ -48,32 +71,51 @@ dependencies {
 	
 }
 
-//Gretty
-buildscript {
-  repositories {
-    jcenter()
-  }
-
-  dependencies {
-    classpath 'org.akhikhl.gretty:gretty:+'
-  }
+jar {
+    baseName = project.name
+    version =  '1.0.0'
 }
 
+cobertura {
+    coverageFormats = ['html', 'xml']
+    coverageIgnoreTrivial = true
+    coverageIgnores = ['org.slf4j.Logger.*']
+    coverageReportDir = new File("$buildDir/reports/cobertura")
+}
+
+pmd {
+    ignoreFailures = true
+    reportsDir = file("$buildDir/reports/pmd")
+}
+
+tasks.withType(Pmd) {
+    reports {
+        xml.enabled = true
+        html.enabled = false
+    }
+}
+
+test{
+    systemProperty 'java.library.path','/vli'
+}
+
+test.finalizedBy(project.tasks.cobertura)
+
+//Gretty
+
+
 gretty {
-  port = 8080
+  port = 8090
   contextPath = 'spring4'
   servletContainer = 'jetty9'
 }
 
 //For Eclipse IDE only
 eclipse {
-
   wtp {
     component {
-      
       //define context path, default to project folder name
       contextPath = 'spring4'
-      
     }
     
   }

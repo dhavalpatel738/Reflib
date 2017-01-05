@@ -1,0 +1,13 @@
+# VMware software license
+StartFields = "Cpt, ProductID, LicenseVersion, LicenseType, LicenseEdition, Option, Epoch, Hash2"
+Cpt = "COPYRIGHT (c) VMware, Inc."
+ProductID = "VMware IT Business Management Standard"
+LicenseVersion = "6.0"
+LicenseType = "Site"
+Epoch = "2010-6-1"
+LicenseEdition = "itbmstd.vcloud5Enterprise"
+Option = "31"
+Data = "FileVersion=6.1.0.0;suiteLicense=secondary;desc=VMware vCloud Suite Enterprise"
+DataHash = "818411af-5df4cd2a-e5739089-fc30c7b4-8425f6ee"
+Hash = "c61f1dea-7a54f083-5b15d8bf-2032ccf9-8f7cd63b"
+Hash2 = "1e2a868e-7dae2ced-2ddf5159-d6403861-d7a10f65"

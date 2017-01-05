@@ -21,18 +21,11 @@
 
 <div class="jumbotron">
 	<div class="container">
-			<h3>Update Your Reference Data</h3>
-			<form class="form-horizontal">
-				<div class="form-group row">
-					<label for="example-license-input" class="control-label col-xs-1">License</label>
-					<div class="col-xs-5">
-						<input class="form-control" type="text" id="example-license-input" placeholder="Enter License">
-					</div>
-					<a href="licenseAgreement" class="btn btn-primary" role="button">Submit</a>
-					<!-- button type="submit" class="btn btn-primary" onclick="location.href='/spring4/downloadWar'">Submit</button -->
-				</div>
-			</form>
-			
+			<h3>License Agreement</h3>
+			<form action="licenseAgree/downloadWar" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
+				<h4><input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to the Terms and Conditions and Privacy Policy </h4>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>		
 	</div>
 </div>
 

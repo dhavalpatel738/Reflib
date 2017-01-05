@@ -1,0 +1,12 @@
+# VMware software license
+StartFields = "Cpt, ProductID, LicenseVersion, LicenseType, LicenseEdition, Option, Epoch"
+Cpt = "COPYRIGHT (c) VMware, Inc."
+ProductID = "ITBM"
+LicenseVersion = "8.0"
+LicenseType = "Site"
+Epoch = "2013-8-1"
+LicenseEdition = "ITBM.Advanced.Enterprise.machine"
+Option = "7"
+Data = "FileVersion=8.2.0.0;capacityType=machine;desc=vRealize Business"
+DataHash = "c3699352-810cfa04-37cebc91-081d9415-83f38722"
+Hash = "885dbbb7-95d27d18-491c8347-835b6a69-e80f9e6e"

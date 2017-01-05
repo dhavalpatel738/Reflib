@@ -1,0 +1,12 @@
+# VMware software license
+StartFields = "Cpt, ProductID, LicenseVersion, LicenseType, LicenseEdition, Option, Epoch"
+Cpt = "COPYRIGHT (c) VMware, Inc."
+ProductID = "VMware vRealize Business"
+LicenseVersion = "7.0"
+LicenseType = "Site"
+Epoch = "2015-09-01"
+LicenseEdition = "vrbusiness.advanced.machine"
+Option = "7"
+Data = "FileVersion=7.0.1.1;capacityType=machine;desc=vRealize Business Advanced 7"
+DataHash = "23ad6578-978f8890-a644defb-aafc8bd1-a65792f3"
+Hash = "66e46662-5bf50bdc-bbe63ce4-2446f517-53da47c1"

@@ -1,0 +1,13 @@
+# VMware software license
+StartFields = "Cpt, ProductID, LicenseVersion, LicenseType, LicenseEdition, Option, Epoch, Hash2"
+Cpt = "COPYRIGHT (c) VMware, Inc."
+ProductID = "VMware IT Business Management Standard"
+LicenseVersion = "6.0"
+LicenseType = "Site"
+Epoch = "2014-2-1"
+LicenseEdition = "itbmstd.vrealizeEnterprise.machine"
+Option = "31"
+Data = "FileVersion=6.1.0.0;suiteLicense=secondary;capacityType=machine;desc=vRealize Suite 6.1 Enterprise"
+DataHash = "0200d098-c000d463-d1bc678b-6a5f8135-7592b1c4"
+Hash = "b66a2947-0a3d8bd6-a5a9fc7b-15559d1a-09126c9f"
+Hash2 = "18387df7-09a21907-5bd06272-ce210327-9fe13952"
